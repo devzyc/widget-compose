@@ -54,6 +54,8 @@ dependencies {
             api(materialIconsExtended)
         }
     }
+
+    api("io.coil-kt:coil-compose:1.4.0")
 }
 
 publishing {
