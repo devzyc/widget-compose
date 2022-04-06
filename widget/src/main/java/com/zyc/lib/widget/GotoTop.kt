@@ -31,8 +31,8 @@ fun GotoTop(
     modifier: Modifier = Modifier,
     listState: LazyListState,
     scope: CoroutineScope,
-    showBottomBar: () -> Unit,
     fabBottomPadding: Dp,
+    showBottomBar: () -> Unit = {},
 ) {
     val showScrollButton = derivedStateOf {
         listState.firstVisibleItemIndex > 0

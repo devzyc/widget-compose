@@ -1,5 +1,3 @@
-import Dep.Compose.Accompanist.inset
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
