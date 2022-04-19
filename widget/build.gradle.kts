@@ -53,7 +53,7 @@ dependencies {
         }
     }
 
-    api("io.coil-kt:coil-compose:1.4.0")
+    api("io.coil-kt:coil-compose:2.0.0-rc03")
 }
 
 publishing {

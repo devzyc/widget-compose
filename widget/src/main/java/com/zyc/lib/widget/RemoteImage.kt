@@ -9,9 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import coil.annotation.ExperimentalCoilApi
+import coil.compose.AsyncImagePainter
 import coil.compose.ImagePainter
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 
 /**
  * @author devzyc
@@ -24,15 +27,16 @@ fun RemoteImage(
     modifier: Modifier = Modifier,
     loadingContent: @Composable (() -> Unit)? = null,
 ) {
-    val painter = rememberImagePainter(
-        data = imageUrl,
-        builder = {
-            crossfade(true)
-        }
-    )
+    val painter =
+        rememberAsyncImagePainter(
+            ImageRequest.Builder(LocalContext.current)
+                .data(data = imageUrl)
+                .crossfade(true)
+                .build()
+        )
 
     val state = painter.state
-    if (state is ImagePainter.State.Loading) {
+    if (state is AsyncImagePainter.State.Loading) {
         Box(
             modifier = modifier,
             contentAlignment = Alignment.Center
