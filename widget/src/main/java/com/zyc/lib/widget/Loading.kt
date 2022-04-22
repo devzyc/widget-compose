@@ -12,21 +12,18 @@ import androidx.compose.ui.Modifier
  */
 @Composable
 fun Loading(
-    isShown: Boolean,
     content: @Composable (() -> Unit)? = null,
 ) {
-    if (isShown) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-        ) {
-            if (content == null) {
-                CircularProgressIndicator(
-                    modifier = Modifier.align(Alignment.Center),
-                )
-            } else {
-                content.invoke()
-            }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        if (content == null) {
+            CircularProgressIndicator(
+                modifier = Modifier.align(Alignment.Center),
+            )
+        } else {
+            content.invoke()
         }
     }
 }
