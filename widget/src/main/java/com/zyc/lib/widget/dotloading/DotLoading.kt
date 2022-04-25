@@ -2,6 +2,7 @@ package com.zyc.lib.widget.dotloading
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
@@ -25,12 +26,12 @@ const val AnimationSegment = AnimationDuration / 10
 private val MainDotSize = 24.dp
 
 @Composable
-fun DotIndicator(
-    modifier: Modifier = Modifier,
+fun DotLoading(
+    modifier: Modifier = Modifier.padding(32.dp),
     color: Color = MaterialTheme.colors.primary,
 ) {
     val state = rememberDotState()
-    LaunchedEffect(key1 = Unit) {
+    LaunchedEffect(true) {
         state.start(this)
     }
 
