@@ -14,6 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlin.math.*
 
@@ -23,10 +24,10 @@ import kotlin.math.*
 const val NumDots = 5 //dots count
 const val AnimationDuration = 2000
 const val AnimationSegment = AnimationDuration / 10
-private val MainDotSize = 24.dp
 
 @Composable
 fun DotLoading(
+    dotSize: Dp = 24.dp,
     modifier: Modifier = Modifier.padding(32.dp),
     color: Color = MaterialTheme.colors.primary,
 ) {
@@ -40,7 +41,7 @@ fun DotLoading(
             val minFactor = .3f
             val step = minFactor / NumDots
             repeat(NumDots) { index ->
-                val size = MainDotSize * (1f - step * index)
+                val size = dotSize * (1f - step * index)
                 Dot(
                     color = color,
                     modifier = Modifier
