@@ -27,7 +27,7 @@ const val AnimationSegment = AnimationDuration / 10
 
 @Composable
 fun DotLoading(
-    dotSize: Dp = 24.dp,
+    dotSize: Dp = 12.dp,
     modifier: Modifier = Modifier.padding(32.dp),
     color: Color = MaterialTheme.colors.primary,
 ) {
